@@ -1,0 +1,130 @@
+format 70
+
+classcanvas 128007 class_ref 128775 // ServiceFourni
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 345 411 2005
+end
+classcanvas 128135 class_ref 128647 // ServiceRequis
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 614 411 2010
+end
+classcanvas 128263 class_ref 129031 // PortRequis
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 23 411 2015
+end
+classcanvas 128391 class_ref 128391 // Interface
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 291 31 2020
+end
+classcanvas 128519 class_ref 128263 // Service
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 495 319 2005
+end
+classcanvas 128647 class_ref 128135 // Port
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 108 313 2025
+end
+classcanvas 128775 class_ref 128903 // PortFourni
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 164 411 2010
+end
+classcanvas 130567 class_ref 128519 // Runnable
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 644 230 2000
+end
+classcanvas 131207 class_ref 171783 // IPort
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 190 148 2000
+end
+classcanvas 132615 class_ref 171911 // IService
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 394 160 2000
+end
+classcanvas 134023 class_ref 172039 // Observable
+  draw_all_relations default hide_attributes default hide_operations yes hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 248 252 2015
+end
+relationcanvas 128903 relation_ref 128775 // <generalisation>
+  geometry VH
+  from ref 128263 z 2026 to point 64 338
+  line 133639 z 2026 to ref 128647
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129031 relation_ref 128519 // <generalisation>
+  geometry VHr
+  from ref 128135 z 2011 to point 532 436
+  line 131975 z 2011 to ref 128519
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129159 relation_ref 128647 // <generalisation>
+  geometry HV
+  from ref 128007 z 2006 to point 532 436
+  line 132103 z 2006 to ref 128519
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129543 relation_ref 128903 // <generalisation>
+  geometry HVr
+  from ref 128775 z 2026 to point 204 338
+  line 133511 z 2026 to ref 128647
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130695 relation_ref 128391 // <realization>
+  geometry VH
+  from ref 128519 z 2006 to point 532 262
+  line 133895 z 2006 to ref 130567
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130823 relation_ref 136071 // <dependency>
+  geometry HV
+  from ref 128519 z 2006 to point 694 349
+  line 131719 z 2006 stereotype "<<import>>" xyz 709 306 3000 to ref 130567
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131335 relation_ref 183047 // <generalisation>
+  geometry VH
+  from ref 131207 z 2021 to point 240 65
+  line 133255 z 2021 to ref 128391
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131463 relation_ref 183175 // <realization>
+  geometry VH
+  from ref 128647 z 2026 label "<Type->Type>" xyz 32 207 2026 to point 128 182
+  line 133383 z 2026 to ref 131207
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132743 relation_ref 183303 // <generalisation>
+  geometry HVr
+  from ref 132615 z 2021 to point 444 65
+  line 132999 z 2021 to ref 128391
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132871 relation_ref 183431 // <realization>
+  geometry VHr
+  from ref 128519 z 2006 to point 444 349
+  line 133767 z 2006 label "<Type->Type>" xyz 407 266 2006 to ref 132615
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134151 relation_ref 183559 // <generalisation>
+  geometry VH
+  from ref 128647 z 2026 to point 128 269
+  line 134535 z 2026 to ref 134023
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134279 relation_ref 183687 // <dependency>
+  from ref 128647 z 2026 stereotype "<<import>>" xyz 285 305 3000 to point 384 296
+  line 134663 z 2026 to ref 134023
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

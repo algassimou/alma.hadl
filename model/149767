@@ -1,0 +1,692 @@
+format 70
+"elements" // com.alma.hadl::elements
+  revision 15
+  modified_by 7 "algassimou"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  java_dir "elements/"
+  java_package "com.alma.hadl.elements"
+  classview 128135 "view"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    associated_deployment_view deploymentview_ref 141319 // deploy
+    classdiagram 134663 "diag_class_composant"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 135559 "Composant"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 135687 // <generalisation>
+	relation 135687 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 135687 // <generalisation>
+	  b parent class_ref 135687 // IComposant
+      end
+
+      classrelation 135815 // ports (<directional composition>)
+	relation 135815 *-->
+	  stereotype "list"
+	  a role_name "ports" multiplicity "1..*" private
+	    comment "l'ensembles des ports du composant"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 135815 // ports (<directional composition>)
+	  b parent class_ref 128135 // Port
+      end
+
+      classrelation 135943 // services (<directional composition>)
+	relation 135943 *-->
+	  stereotype "list"
+	  a role_name "services" multiplicity "1..*" private
+	    comment "l'ensemble des services d'un composant"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 135943 // services (<directional composition>)
+	  b parent class_ref 128263 // Service
+      end
+
+      classrelation 136455 // <dependency>
+	relation 136455 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 136455 // <dependency>
+	  b parent class_ref 135815 // List
+      end
+
+      classrelation 144263 // <dependency>
+	relation 144263 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 144263 // <dependency>
+	  b parent class_ref 128135 // Port
+      end
+
+      classrelation 144391 // <dependency>
+	relation 144391 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 144391 // <dependency>
+	  b parent class_ref 128263 // Service
+      end
+
+      operation 160519 "ajouterPortRequis"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "nom" explicit_type "string"
+	  param in name "type" type class_ref 137607 // Class
+	nexceptions 1
+	  exception class_ref 137479 // HADLException
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1}<?> ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 160647 "ajouterPortFourni"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "nom" explicit_type "string"
+	  param in name "type" type class_ref 137607 // Class
+	nexceptions 1
+	  exception class_ref 137479 // HADLException
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1}<?> ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      classrelation 151175 // <dependency>
+	relation 151175 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 151175 // <dependency>
+	  b parent class_ref 137479 // HADLException
+      end
+    end
+
+    class 135687 "IComposant"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      operation 139911 "ajouterPortRequis"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "nom" explicit_type "string"
+	  param in name "type" type class_ref 137607 // Class
+	nexceptions 1
+	  exception class_ref 137479 // HADLException
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1}<?> ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      classrelation 137095 // <dependency>
+	relation 137095 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 137095 // <dependency>
+	  b parent class_ref 137479 // HADLException
+      end
+
+      operation 142727 "ajouterPortFourni"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "nom" explicit_type "string"
+	  param in name "type" type class_ref 137607 // Class
+	nexceptions 1
+	  exception class_ref 137479 // HADLException
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1}<?> ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+    end
+
+    classdiagram 141319 "diag_class_config"
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 147847 "IConfiguration"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 207495 // <dependency>
+	relation 207367 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 207495 // <dependency>
+	  b parent class_ref 128135 // Port
+      end
+
+      classrelation 207623 // <dependency>
+	relation 207495 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 207623 // <dependency>
+	  b parent class_ref 185735 // Role
+      end
+
+      operation 205319 "cretaAttachement"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 4
+	  param in name "composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 205447 "createAttachement"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 4
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	  param in name "composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+    end
+
+    class 147975 "Configuration"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 161159 // <generalisation>
+	relation 161159 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 161159 // <generalisation>
+	  b parent class_ref 150151 // AbstractConfiguration
+      end
+
+      classrelation 208007 // <dependency>
+	relation 207879 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 208007 // <dependency>
+	  b parent class_ref 185735 // Role
+      end
+
+      classrelation 208135 // <dependency>
+	relation 208007 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 208135 // <dependency>
+	  b parent class_ref 128135 // Port
+      end
+
+      classrelation 214919 // <dependency>
+	relation 214791 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 214919 // <dependency>
+	  b parent class_ref 178951 // ProxyAttachementRole
+      end
+
+      classrelation 215047 // <dependency>
+	relation 214919 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 215047 // <dependency>
+	  b parent class_ref 178823 // ProxyAttachementPort
+      end
+
+      classrelation 215175 // <dependency>
+	relation 215047 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 215175 // <dependency>
+	  b parent class_ref 179079 // IRemoteAttachement
+      end
+
+      classrelation 215303 // <dependency>
+	relation 215175 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 215303 // <dependency>
+	  b parent class_ref 164743 // IRole
+      end
+
+      classrelation 215431 // <dependency>
+	relation 215303 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 215431 // <dependency>
+	  b parent class_ref 171783 // IPort
+      end
+
+      classrelation 221959 // <realization>
+	relation 221831 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 221959 // <realization>
+	  b parent class_ref 192263 // IConfigurationRemote
+      end
+
+      operation 205831 "createRemoteAttachement"
+	preserve_cpp_body_indent public return_type class_ref 179079 // IRemoteAttachement
+	nparams 4
+	  param in name "Composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 205959 "createRemoteAttachement"
+	preserve_cpp_body_indent public return_type class_ref 179079 // IRemoteAttachement
+	nparams 4
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	  param in name "composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 206087 "cretaAttachement"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 4
+	  param in name "composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 206215 "createAttachement"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 4
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	  param in name "composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+    end
+
+    class 148103 "ProxyConfiguration"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 161287 // <generalisation>
+	relation 161287 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 161287 // <generalisation>
+	  b parent class_ref 150151 // AbstractConfiguration
+      end
+
+      classrelation 214663 // <dependency>
+	relation 214535 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 214663 // <dependency>
+	  b parent class_ref 128135 // Port
+      end
+
+      classrelation 214791 // <dependency>
+	relation 214663 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 214791 // <dependency>
+	  b parent class_ref 185735 // Role
+      end
+
+      classrelation 222087 // target (<unidirectional association>)
+	relation 221959 --->
+	  a role_name "target" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 222087 // target (<unidirectional association>)
+	  b parent class_ref 192263 // IConfigurationRemote
+      end
+    end
+
+    class 150151 "AbstractConfiguration"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 161031 // <realization>
+	relation 161031 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 161031 // <realization>
+	  b parent class_ref 147847 // IConfiguration
+      end
+
+      classrelation 161671 // bindings (<directional composition>)
+	relation 161671 *-->
+	  stereotype "list"
+	  a role_name "bindings" multiplicity "*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 161671 // bindings (<directional composition>)
+	  b parent class_ref 148871 // IBinding
+      end
+
+      classrelation 184199 // attachements (<directional composition>)
+	relation 184071 *-->
+	  stereotype "list"
+	  a role_name "attachements" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 184199 // attachements (<directional composition>)
+	  b parent class_ref 148743 // IAttachement
+      end
+
+      classrelation 207239 // <dependency>
+	relation 207111 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 207239 // <dependency>
+	  b parent class_ref 148871 // IBinding
+      end
+
+      classrelation 207367 // <dependency>
+	relation 207239 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 207367 // <dependency>
+	  b parent class_ref 148743 // IAttachement
+      end
+
+      classrelation 222471 // <directional composition>
+	relation 222343 *-->
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 222471 // <directional composition>
+	  b parent class_ref 148999 // IConnecteur
+      end
+    end
+
+    classdiagram 154503 "diag_class_config_import"
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 192263 "IConfigurationRemote"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 205575 "createRemoteAttachement"
+	preserve_cpp_body_indent public return_type class_ref 179079 // IRemoteAttachement
+	nparams 4
+	  param in name "Composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 205703 "createRemoteAttachement"
+	preserve_cpp_body_indent public return_type class_ref 179079 // IRemoteAttachement
+	nparams 4
+	  param in name "connecteur" type class_ref 148999 // IConnecteur
+	  param in name "role" explicit_type "string"
+	  param in name "composant" type class_ref 135687 // IComposant
+	  param in name "port" explicit_type "string"
+	
+	preserve_java_body_indent java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+    end
+  end
+
+  deploymentview 141319 "deploy"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 149511 "Composant"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 135559 // Composant
+      end
+    end
+
+    artifact 149639 "IComposant"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 135687 // IComposant
+      end
+    end
+
+    artifact 165255 "IConfiguration"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 147847 // IConfiguration
+      end
+    end
+
+    artifact 165383 "Configuration"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 147975 // Configuration
+      end
+    end
+
+    artifact 165511 "ProxyConfiguration"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 148103 // ProxyConfiguration
+      end
+    end
+
+    artifact 165639 "AbstractConfiguration"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 150151 // AbstractConfiguration
+      end
+    end
+  end
+end

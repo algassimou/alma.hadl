@@ -1,0 +1,21 @@
+window_sizes 1440 825 412 1022 626 120
+diagrams
+  active  classdiagram_ref 128135 // diag_class
+    1022 626 100 4 0 0
+  classdiagram_ref 141447 // diag_class_connecteur
+    1022 626 100 4 0 0
+  classdiagram_ref 147975 // diag_class_attachement
+    1022 626 100 4 0 0
+  classdiagram_ref 141319 // diag_class_config
+    1022 626 100 4 0 0
+  classdiagram_ref 154503 // diag_class_config_import
+    1022 626 100 4 0 0
+  classdiagram_ref 134791 // diag_class
+    817 500 100 4 0 0
+end
+show_stereotypes
+selected 
+package_ref 129 // hadl
+open
+end
+end

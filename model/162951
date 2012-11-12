@@ -1,0 +1,702 @@
+format 70
+"server" // src::java::rmi::server
+  revision 2
+  modified_by 7 "algassimou"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  java_dir "java/rmi/server"
+  java_package "java.rmi.server"
+  classview 155911 "server"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 156807 "UnicastRemoteObject"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Used for exporting a remote object with JRMP and obtaining a stub
+that communicates to the remote object.
+
+<p>For the constructors and static <code>exportObject</code> methods
+below, the stub for a remote object being exported is obtained as
+follows:
+
+<p><ul>
+
+<li>If the remote object is exported using the {@link
+#exportObject(Remote) UnicastRemoteObject.exportObject(Remote)} method,
+a stub class (typically pregenerated from the remote object's class
+using the <code>rmic</code> tool) is loaded and an instance of that stub
+class is constructed as follows.
+<ul>
+
+<li>A \"root class\" is determined as follows:  if the remote object's
+class directly implements an interface that extends {@link Remote}, then
+the remote object's class is the root class; otherwise, the root class is
+the most derived superclass of the remote object's class that directly
+implements an interface that extends <code>Remote</code>.
+
+<li>The name of the stub class to load is determined by concatenating
+the binary name of the root class with the suffix <code>\"_Stub\"</code>.
+
+<li>The stub class is loaded by name using the class loader of the root
+class.  The stub class must extend {@link RemoteStub} and must have a
+public constructor that has one parameter, of type {@link RemoteRef}.
+
+<li>Finally, an instance of the stub class is constructed with a
+{@link RemoteRef}.
+</ul>
+
+<li>If the appropriate stub class could not be found, or the stub class
+could not be loaded, or a problem occurs creating the stub instance, a
+{@link StubNotFoundException} is thrown.
+
+<p>
+<li>For all other means of exporting:
+<p><ul>
+
+<li>If the remote object's stub class (as defined above) could not be
+loaded or the system property
+<code>java.rmi.server.ignoreStubClasses</code> is set to
+<code>\"true\"</code> (case insensitive), a {@link
+java.lang.reflect.Proxy} instance is constructed with the following
+properties:
+
+<ul>
+
+<li>The proxy's class is defined by the class loader of the remote
+object's class.
+
+<li>The proxy implements all the remote interfaces implemented by the
+remote object's class.
+
+<li>The proxy's invocation handler is a {@link
+RemoteObjectInvocationHandler} instance constructed with a
+{@link RemoteRef}.
+
+<li>If the proxy could not be created, a {@link StubNotFoundException}
+will be thrown.
+</ul>
+
+<p>
+<li>Otherwise, an instance of the remote object's stub class (as
+described above) is used as the stub.
+
+</ul>
+</ul>
+
+@author  Ann Wollrath
+@author  Peter Jones
+@since   JDK1.1"
+      classrelation 168711 // <generalisation>
+	relation 168711 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 168711 // <generalisation>
+	  b parent class_ref 156935 // RemoteServer
+      end
+
+      operation 175751 "UnicastRemoteObject"
+	protected explicit_return_type ""
+	nparams 0
+	nexceptions 1
+	  exception class_ref 157959 // RemoteException
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Creates and exports a new UnicastRemoteObject object using an
+anonymous port.
+@throws RemoteException if failed to export object
+@since JDK1.1"
+      end
+
+      operation 175879 "UnicastRemoteObject"
+	protected explicit_return_type ""
+	nparams 1
+	  param in name "port" explicit_type "int"
+	nexceptions 1
+	  exception class_ref 157959 // RemoteException
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Creates and exports a new UnicastRemoteObject object using the
+particular supplied port.
+@param port the port number on which the remote object receives calls
+(if <code>port</code> is zero, an anonymous port is chosen)
+@throws RemoteException if failed to export object
+@since 1.2"
+      end
+
+      operation 176007 "UnicastRemoteObject"
+	protected explicit_return_type ""
+	nparams 3
+	  param in name "port" explicit_type "int"
+	  param inout name "csf" type class_ref 157703 // RMIClientSocketFactory
+	  param inout name "ssf" type class_ref 157831 // RMIServerSocketFactory
+	nexceptions 1
+	  exception class_ref 157959 // RemoteException
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Creates and exports a new UnicastRemoteObject object using the
+particular supplied port and socket factories.
+@param port the port number on which the remote object receives calls
+(if <code>port</code> is zero, an anonymous port is chosen)
+@param csf the client-side socket factory for making calls to the
+remote object
+@param ssf the server-side socket factory for receiving remote calls
+@throws RemoteException if failed to export object
+@since 1.2"
+      end
+
+      operation 176135 "clone"
+	public return_type class_ref 136327 // Object
+	nparams 0
+	nexceptions 1
+	  exception class_ref 158087 // CloneNotSupportedException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns a clone of the remote object that is distinct from
+the original.
+
+@exception CloneNotSupportedException if clone failed due to
+a RemoteException.
+@return the new remote object
+@since JDK1.1"
+      end
+
+      operation 176263 "exportObject"
+	class_operation public return_type class_ref 158215 // RemoteStub
+	nparams 1
+	  param inout name "obj" type class_ref 156679 // Remote
+	nexceptions 1
+	  exception class_ref 157959 // RemoteException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Exports the remote object to make it available to receive incoming
+calls using an anonymous port.
+@param obj the remote object to be exported
+@return remote object stub
+@exception RemoteException if export fails
+@since JDK1.1"
+      end
+
+      operation 176391 "exportObject"
+	class_operation public return_type class_ref 156679 // Remote
+	nparams 2
+	  param inout name "obj" type class_ref 156679 // Remote
+	  param in name "port" explicit_type "int"
+	nexceptions 1
+	  exception class_ref 157959 // RemoteException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Exports the remote object to make it available to receive incoming
+calls, using the particular supplied port.
+@param obj the remote object to be exported
+@param port the port to export the object on
+@return remote object stub
+@exception RemoteException if export fails
+@since 1.2"
+      end
+
+      operation 176519 "exportObject"
+	class_operation public return_type class_ref 156679 // Remote
+	nparams 4
+	  param inout name "obj" type class_ref 156679 // Remote
+	  param in name "port" explicit_type "int"
+	  param inout name "csf" type class_ref 157703 // RMIClientSocketFactory
+	  param inout name "ssf" type class_ref 157831 // RMIServerSocketFactory
+	nexceptions 1
+	  exception class_ref 157959 // RemoteException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Exports the remote object to make it available to receive incoming
+calls, using a transport specified by the given socket factory.
+@param obj the remote object to be exported
+@param port the port to export the object on
+@param csf the client-side socket factory for making calls to the
+remote object
+@param ssf the server-side socket factory for receiving remote calls
+@return remote object stub
+@exception RemoteException if export fails
+@since 1.2"
+      end
+
+      operation 176647 "unexportObject"
+	class_operation public explicit_return_type "boolean"
+	nparams 2
+	  param inout name "obj" type class_ref 156679 // Remote
+	  param inout name "force" explicit_type "boolean"
+	nexceptions 1
+	  exception class_ref 157319 // NoSuchObjectException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Removes the remote object, obj, from the RMI runtime. If
+successful, the object can no longer accept incoming RMI calls.
+If the force parameter is true, the object is forcibly unexported
+even if there are pending calls to the remote object or the
+remote object still has calls in progress.  If the force
+parameter is false, the object is only unexported if there are
+no pending or in progress calls to the object.
+
+@param obj the remote object to be unexported
+@param force if true, unexports the object even if there are
+pending or in-progress calls; if false, only unexports the object
+if there are no pending or in-progress calls
+@return true if operation is successful, false otherwise
+@exception NoSuchObjectException if the remote object is not
+currently exported
+@since 1.2"
+      end
+    end
+
+    class 156935 "RemoteServer"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "The <code>RemoteServer</code> class is the common superclass to server
+implementations and provides the framework to support a wide range
+of remote reference semantics.  Specifically, the functions needed
+to create and export remote objects (i.e. to make them remotely
+available) are provided abstractly by <code>RemoteServer</code> and
+concretely by its subclass(es).
+
+@author  Ann Wollrath
+@since   JDK1.1"
+      classrelation 168583 // <generalisation>
+	relation 168583 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 168583 // <generalisation>
+	  b parent class_ref 157063 // RemoteObject
+      end
+
+      operation 175111 "RemoteServer"
+	protected explicit_return_type ""
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructs a <code>RemoteServer</code>.
+@since JDK1.1"
+      end
+
+      operation 175239 "RemoteServer"
+	protected explicit_return_type ""
+	nparams 1
+	  param inout name "ref" type class_ref 157191 // RemoteRef
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Constructs a <code>RemoteServer</code> with the given reference type.
+
+@param ref the remote reference
+@since JDK1.1"
+      end
+
+      operation 175367 "getClientHost"
+	class_operation public return_type class_ref 136967 // String
+	nparams 0
+	nexceptions 1
+	  exception class_ref 157447 // ServerNotActiveException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns a string representation of the client host for the
+remote method invocation being processed in the current thread.
+
+@return  a string representation of the client host
+
+@throws  ServerNotActiveException if no remote method invocation
+is being processed in the current thread
+
+@since   JDK1.1"
+      end
+
+      operation 175495 "setLog"
+	class_operation public explicit_return_type "void"
+	nparams 1
+	  param inout name "out" type class_ref 157575 // OutputStream
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Log RMI calls to the output stream <code>out</code>. If
+<code>out</code> is <code>null</code>, call logging is turned off.
+
+<p>If there is a security manager, its
+<code>checkPermission</code> method will be invoked with a
+<code>java.util.logging.LoggingPermission(\"control\")</code>
+permission; this could result in a <code>SecurityException</code>.
+
+@param   out the output stream to which RMI calls should be logged
+@throws  SecurityException  if there is a security manager and
+         the invocation of its <code>checkPermission</code> method
+         fails
+@see #getLog
+@since JDK1.1"
+      end
+
+      operation 175623 "getLog"
+	class_operation public return_type class_ref 137223 // PrintStream
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns stream for the RMI call log.
+@return the call log
+@see #setLog
+@since JDK1.1"
+      end
+    end
+
+    class 157063 "RemoteObject"
+      abstract visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "The <code>RemoteObject</code> class implements the
+<code>java.lang.Object</code> behavior for remote objects.
+<code>RemoteObject</code> provides the remote semantics of Object by
+implementing methods for hashCode, equals, and toString.
+
+@author      Ann Wollrath
+@author      Laird Dornin
+@author      Peter Jones
+@since       JDK1.1"
+      classrelation 168199 // <realization>
+	relation 168199 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 168199 // <realization>
+	  b parent class_ref 156679 // Remote
+      end
+
+      classrelation 168327 // <realization>
+	relation 168327 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 168327 // <realization>
+	  b parent class_ref 136839 // Serializable
+      end
+
+      classrelation 168455 // ref (<unidirectional association>)
+	relation 168455 --->
+	  a role_name "ref" protected
+	    comment " The object's remote reference. 
+"
+	    transient
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 168455 // ref (<unidirectional association>)
+	  b parent class_ref 157191 // RemoteRef
+      end
+
+      operation 174215 "RemoteObject"
+	protected explicit_return_type ""
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Creates a remote object."
+      end
+
+      operation 174343 "RemoteObject"
+	protected explicit_return_type ""
+	nparams 1
+	  param inout name "newref" type class_ref 157191 // RemoteRef
+	
+	java_def "  ${comment}${@}${visibility}${synchronized}${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Creates a remote object, initialized with the specified remote
+reference.
+@param newref remote reference"
+      end
+
+      operation 174471 "getRef"
+	public return_type class_ref 157191 // RemoteRef
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns the remote reference for the remote object.
+
+<p>Note: The object returned from this method may be an instance of
+an implementation-specific class.  The <code>RemoteObject</code>
+class ensures serialization portability of its instances' remote
+references through the behavior of its custom
+<code>writeObject</code> and <code>readObject</code> methods.  An
+instance of <code>RemoteRef</code> should not be serialized outside
+of its <code>RemoteObject</code> wrapper instance or the result may
+be unportable.
+
+@return remote reference for the remote object
+@since 1.2"
+      end
+
+      operation 174599 "toStub"
+	class_operation public return_type class_ref 156679 // Remote
+	nparams 1
+	  param inout name "obj" type class_ref 156679 // Remote
+	nexceptions 1
+	  exception class_ref 157319 // NoSuchObjectException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns the stub for the remote object <code>obj</code> passed
+as a parameter. This operation is only valid <i>after</i>
+the object has been exported.
+@param obj the remote object whose stub is needed
+@return the stub for the remote object, <code>obj</code>.
+@exception NoSuchObjectException if the stub for the
+remote object could not be found.
+@since 1.2"
+      end
+
+      operation 174727 "hashCode"
+	public explicit_return_type "int"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns a hashcode for a remote object.  Two remote object stubs
+that refer to the same remote object will have the same hash code
+(in order to support remote objects as keys in hash tables).
+
+@see             java.util.Hashtable"
+      end
+
+      operation 174855 "equals"
+	public explicit_return_type "boolean"
+	nparams 1
+	  param inout name "obj" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Compares two remote objects for equality.
+Returns a boolean that indicates whether this remote object is
+equivalent to the specified Object. This method is used when a
+remote object is stored in a hashtable.
+If the specified Object is not itself an instance of RemoteObject,
+then this method delegates by returning the result of invoking the
+<code>equals</code> method of its parameter with this remote object
+as the argument.
+@param   obj     the Object to compare with
+@return  true if these Objects are equal; false otherwise.
+@see             java.util.Hashtable"
+      end
+
+      operation 174983 "toString"
+	public return_type class_ref 136967 // String
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Returns a String that represents the value of this remote object."
+      end
+    end
+
+    class 157191 "RemoteRef"
+      visibility package stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 157447 "ServerNotActiveException"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 157703 "RMIClientSocketFactory"
+      visibility package stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 157831 "RMIServerSocketFactory"
+      visibility package stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 158215 "RemoteStub"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+  end
+end

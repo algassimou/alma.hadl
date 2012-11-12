@@ -1,0 +1,1038 @@
+format 70
+"connection" // com.alma.hadl::connection
+  revision 9
+  modified_by 7 "algassimou"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  java_dir "connections"
+  java_package "com.alma.hadl.connections"
+  classview 149255 "view"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    associated_deployment_view deploymentview_ref 147847 // view
+    classdiagram 141447 "diag_class_connecteur"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 148231 "IConnection"
+      visibility package stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+    end
+
+    class 148359 "Connecteur"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 158855 // <realization>
+	relation 158855 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 158855 // <realization>
+	  b parent class_ref 148999 // IConnecteur
+      end
+
+      classrelation 160007 // glues (<directional composition>)
+	relation 160007 *-->
+	  stereotype "list"
+	  a role_name "glues" multiplicity "*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 160007 // glues (<directional composition>)
+	  b parent class_ref 149639 // IGlue
+      end
+
+      classrelation 199559 // rolesFourniss (<directional composition>)
+	relation 199431 *-->
+	  stereotype "list"
+	  a role_name "rolesFourniss" multiplicity "1..*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 199559 // rolesFourniss (<directional composition>)
+	  b parent class_ref 165255 // RoleFourni
+      end
+
+      classrelation 200071 // rolesRequiss (<directional composition>)
+	relation 199943 *-->
+	  stereotype "list"
+	  a role_name "rolesRequiss" multiplicity "1..*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 200071 // rolesRequiss (<directional composition>)
+	  b parent class_ref 164999 // RoleRequis
+      end
+    end
+
+    class 148615 "Binding"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 159111 // <realization>
+	relation 159111 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 159111 // <realization>
+	  b parent class_ref 148871 // IBinding
+      end
+    end
+
+    class 148871 "IBinding"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 158727 // <generalisation>
+	relation 158727 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 158727 // <generalisation>
+	  b parent class_ref 148231 // IConnection
+      end
+    end
+
+    class 148999 "IConnecteur"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 158471 // <generalisation>
+	relation 158471 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 158471 // <generalisation>
+	  b parent class_ref 148231 // IConnection
+      end
+    end
+
+    class 149639 "IGlue"
+      visibility public stereotype "interface"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+    end
+
+    class 149767 "Glue"
+      visibility public 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 160135 // <realization>
+	relation 160135 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 160135 // <realization>
+	  b parent class_ref 149639 // IGlue
+      end
+    end
+
+    class 164743 "IRole"
+      visibility public stereotype "interface"
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 128391 // Interface
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 175239 // <generalisation>
+	relation 175239 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 175239 // <generalisation>
+	  b parent class_ref 128391 // Interface
+      end
+    end
+
+    class 164999 "RoleRequis"
+      visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 185735 // Role
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 199815 // <generalisation>
+	relation 199687 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 199815 // <generalisation>
+	  b parent class_ref 185735 // Role
+      end
+    end
+
+    class 165255 "RoleFourni"
+      visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 185735 // Role
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 199943 // <generalisation>
+	relation 199815 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 199943 // <generalisation>
+	  b parent class_ref 185735 // Role
+      end
+    end
+
+    classdiagram 147975 "diag_class_attachement"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 148487 "Attachement"
+      visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 148743 // IAttachement
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 190727 // <realization>
+	relation 190599 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 190727 // <realization>
+	  b parent class_ref 148743 // IAttachement
+      end
+
+      operation 198279 "update"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "o" type class_ref 172039 // Observable
+	  param inout name "arg" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "This method is called whenever the observed object is changed. An
+application calls an <tt>Observable</tt> object's
+<code>notifyObservers</code> method to have all the object's
+observers notified of the change.
+
+@param   o     the observable object.
+@param   arg   an argument passed to the <code>notifyObservers</code>
+                method."
+      end
+    end
+
+    class 148743 "IAttachement"
+      visibility public stereotype "interface"
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 158599 // <generalisation>
+	relation 158599 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 158599 // <generalisation>
+	  b parent class_ref 148231 // IConnection
+      end
+
+      classrelation 191239 // <generalisation>
+	relation 191111 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 191239 // <generalisation>
+	  b parent class_ref 172295 // Observer
+      end
+
+      classrelation 191367 // <dependency>
+	relation 191239 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 191367 // <dependency>
+	  b parent class_ref 172295 // Observer
+      end
+
+      operation 198151 "update"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "o" type class_ref 172039 // Observable
+	  param inout name "arg" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "This method is called whenever the observed object is changed. An
+application calls an <tt>Observable</tt> object's
+<code>notifyObservers</code> method to have all the object's
+observers notified of the change.
+
+@param   o     the observable object.
+@param   arg   an argument passed to the <code>notifyObservers</code>
+                method."
+      end
+    end
+
+    class 178823 "ProxyAttachementPort"
+      visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 2
+      actual class class_ref 148743 // IAttachement
+        rank 0 explicit_value "Type"
+      actual class class_ref 171783 // IPort
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 190983 // <realization>
+	relation 190855 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 190983 // <realization>
+	  b parent class_ref 148743 // IAttachement
+      end
+
+      classrelation 192135 // <realization>
+	relation 192007 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 192135 // <realization>
+	  b parent class_ref 171783 // IPort
+      end
+
+      classrelation 192391 // remoteAttachement (<unidirectional association>)
+	relation 192263 --->
+	  a role_name "remoteAttachement" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 192391 // remoteAttachement (<unidirectional association>)
+	  b parent class_ref 179079 // IRemoteAttachement
+      end
+
+      classrelation 207111 // <dependency>
+	relation 206983 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 207111 // <dependency>
+	  b parent class_ref 171783 // IPort
+      end
+
+      operation 198535 "update"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "o" type class_ref 172039 // Observable
+	  param inout name "arg" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "This method is called whenever the observed object is changed. An
+application calls an <tt>Observable</tt> object's
+<code>notifyObservers</code> method to have all the object's
+observers notified of the change.
+
+@param   o     the observable object.
+@param   arg   an argument passed to the <code>notifyObservers</code>
+                method."
+      end
+    end
+
+    class 178951 "ProxyAttachementRole"
+      visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 2
+      actual class class_ref 148743 // IAttachement
+        rank 0 explicit_value "Type"
+      actual class class_ref 164743 // IRole
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 191111 // <realization>
+	relation 190983 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 191111 // <realization>
+	  b parent class_ref 148743 // IAttachement
+      end
+
+      classrelation 192007 // <realization>
+	relation 191879 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 192007 // <realization>
+	  b parent class_ref 164743 // IRole
+      end
+
+      classrelation 192647 // remoteAttachement (<unidirectional association>)
+	relation 192519 --->
+	  a role_name "remoteAttachement" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 192647 // remoteAttachement (<unidirectional association>)
+	  b parent class_ref 179079 // IRemoteAttachement
+      end
+
+      classrelation 206855 // <dependency>
+	relation 206727 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 206855 // <dependency>
+	  b parent class_ref 164743 // IRole
+      end
+
+      operation 198407 "update"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "o" type class_ref 172039 // Observable
+	  param inout name "arg" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "This method is called whenever the observed object is changed. An
+application calls an <tt>Observable</tt> object's
+<code>notifyObservers</code> method to have all the object's
+observers notified of the change.
+
+@param   o     the observable object.
+@param   arg   an argument passed to the <code>notifyObservers</code>
+                method."
+      end
+    end
+
+    class 179079 "IRemoteAttachement"
+      visibility public stereotype "interface"
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 148743 // IAttachement
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}interface ${name}${extends} {
+${members}}
+"
+      php_decl "${comment}${visibility}interface ${name} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 192775 // <generalisation>
+	relation 192647 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 192775 // <generalisation>
+	  b parent class_ref 148743 // IAttachement
+      end
+
+      classrelation 193031 // <generalisation>
+	relation 192903 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 193031 // <generalisation>
+	  b parent class_ref 156679 // Remote
+      end
+
+      operation 198663 "update"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "o" type class_ref 172039 // Observable
+	  param inout name "arg" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "This method is called whenever the observed object is changed. An
+application calls an <tt>Observable</tt> object's
+<code>notifyObservers</code> method to have all the object's
+observers notified of the change.
+
+@param   o     the observable object.
+@param   arg   an argument passed to the <code>notifyObservers</code>
+                method."
+      end
+    end
+
+    class 179207 "RemoteAttachement"
+      visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 179079 // IRemoteAttachement
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 192263 // <realization>
+	relation 192135 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 192263 // <realization>
+	  b parent class_ref 179079 // IRemoteAttachement
+      end
+
+      operation 198791 "update"
+	public explicit_return_type "void"
+	nparams 2
+	  param inout name "o" type class_ref 172039 // Observable
+	  param inout name "arg" type class_ref 136327 // Object
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "This method is called whenever the observed object is changed. An
+application calls an <tt>Observable</tt> object's
+<code>notifyObservers</code> method to have all the object's
+observers notified of the change.
+
+@param   o     the observable object.
+@param   arg   an argument passed to the <code>notifyObservers</code>
+                method."
+      end
+    end
+
+    class 185735 "Role"
+      abstract visibility public 
+      nformals 1
+      formal name "Type" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 164743 // IRole
+        rank 0 explicit_value "Type"
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 199687 // <realization>
+	relation 199559 -_-|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 199687 // <realization>
+	  b parent class_ref 164743 // IRole
+      end
+
+      classrelation 200199 // <generalisation>
+	relation 200071 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 200199 // <generalisation>
+	  b parent class_ref 172039 // Observable
+      end
+
+      classrelation 200327 // <dependency>
+	relation 200199 -_->
+	  stereotype "import"
+	  a package
+	    classrelation_ref 200327 // <dependency>
+	  b parent class_ref 172039 // Observable
+      end
+    end
+  end
+
+  deploymentview 147847 "view"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 156167 "IConnection"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 148231 // IConnection
+      end
+    end
+
+    artifact 156295 "Connecteur"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 148359 // Connecteur
+      end
+    end
+
+    artifact 156423 "Binding"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 148615 // Binding
+      end
+    end
+
+    artifact 156551 "IBinding"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 148871 // IBinding
+      end
+    end
+
+    artifact 156679 "IConnecteur"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 148999 // IConnecteur
+      end
+    end
+
+    artifact 156807 "IGlue"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 149639 // IGlue
+      end
+    end
+
+    artifact 156935 "Glue"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 149767 // Glue
+      end
+    end
+
+    artifact 157063 "IRole"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 164743 // IRole
+      end
+    end
+
+    artifact 157191 "IRoleREquis"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+      end
+    end
+
+    artifact 157319 "RoleRequis"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 164999 // RoleRequis
+      end
+    end
+
+    artifact 157447 "IRoleFourni"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+      end
+    end
+
+    artifact 157575 "RoleFourni"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 165255 // RoleFourni
+      end
+    end
+
+    artifact 157703 "Attachement"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 148487 // Attachement
+      end
+    end
+
+    artifact 157831 "IAttachement"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 148743 // IAttachement
+      end
+    end
+
+    artifact 157959 "ProxyAttachementPort"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 178823 // ProxyAttachementPort
+      end
+    end
+
+    artifact 158087 "ProxyAttachementRole"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 178951 // ProxyAttachementRole
+      end
+    end
+
+    artifact 158215 "IRemoteAttachement"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      php_src "<?php
+${comment}
+${definition}
+?>
+"
+      idl_src "#ifndef ${MODULE}_${NAME}_H
+#define ${MODULE}_${NAME}_H
+
+${comment}
+${includes}
+${module_start}
+${definition}
+${module_end}
+#endif
+"
+      associated_classes
+	class_ref 179079 // IRemoteAttachement
+      end
+    end
+
+    artifact 158343 "RemoteAttachement"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 179207 // RemoteAttachement
+      end
+    end
+
+    artifact 165127 "Role"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      associated_classes
+	class_ref 185735 // Role
+      end
+    end
+  end
+end
