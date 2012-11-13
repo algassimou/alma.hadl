@@ -21,9 +21,9 @@ public class ProxyConfigurationTest {
 		try {
 			System.out.println("-*******************************-");
 			//adresse = InetAddress.getLocalHost().toString() ;
-			adresse = "I121V2pc01" ;
+			adresse = "" ;
 			System.out.println(adresse);
-			config = new StubConfiguration("//"+adresse+"/config",9800,10) ;
+			config = new StubConfiguration("//"+adresse+":9800/config",9800,10) ;
 			System.out.println("-*******************************-");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
