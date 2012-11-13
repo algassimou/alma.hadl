@@ -11,27 +11,26 @@ public class StubConfiguration extends Configuration {
 	private int valeur ;
 
 	protected StubConfiguration(String adresse, int port, int val) throws RemoteException, MalformedURLException, AlreadyBoundException {
-		super();
+		super(adresse, port);
 		valeur = val ;
-		Configuration.bindConfiguration(this, adresse, port);
 		// TODO Auto-generated constructor stub
 	}
 
-	public void addNoeud(Noeud n) {
+	public void addNoeud(Noeud n) throws RemoteException{
 		// TODO Auto-generated method stub
 
 	}
 
-	public int getNextIdentifiant() {
+	public int getNextIdentifiant() throws RemoteException{
 		// TODO Auto-generated method stub
 		return valeur;
 	}
 	
-	public int getValeur () {
+	public int getValeur ()throws RemoteException {
 		return this.valeur ;
 	}
 	
-	public void setValeur (int i){
+	public void setValeur (int i) throws RemoteException{
 		this.valeur = i ;
 	}
 	

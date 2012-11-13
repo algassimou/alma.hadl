@@ -19,18 +19,13 @@ public class ProxyConfigurationTest {
 	@Before 
 	public void setUp () {
 		try {
-			adresse = InetAddress.getLocalHost().toString() ;
+			System.out.println("-*******************************-");
+			//adresse = InetAddress.getLocalHost().toString() ;
+			adresse = "I121V2pc01" ;
+			System.out.println(adresse);
 			config = new StubConfiguration("//"+adresse+"/config",9800,10) ;
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (AlreadyBoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnknownHostException e) {
+			System.out.println("-*******************************-");
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -42,13 +37,7 @@ public class ProxyConfigurationTest {
 			IConfiguration proxy = Configuration.getConfiguration("//"+adresse+":9800/config") ;
 			assertEquals(proxy.getNextIdentifiant(), config.getNextIdentifiant());
 			assertEquals(proxy.getNextIdentifiant(),((StubConfiguration)config).getValeur());
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NotBoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

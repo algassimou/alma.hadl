@@ -34,7 +34,7 @@ public class Configuration extends AbstractConfiguration {
 		super();
 	}
 
-	public void addNoeud(Noeud n) {
+	public void addNoeud(Noeud n)throws RemoteException {
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Configuration extends AbstractConfiguration {
 	/**
 	 * @return un identifiant valide pour un noeud
 	 */
-	public int getNextIdentifiant() {
+	public int getNextIdentifiant() throws RemoteException{
 		return this.nextId++ ;
 	}
 	
