@@ -1,6 +1,8 @@
 
 package alma.hadl.configuration;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import alma.hadl.connection.IConnection;
@@ -12,16 +14,24 @@ import alma.hadl.connection.IConnection;
  * @see Configuration
  * @see ProxyConfiguration
  */
-abstract class AbstractConfiguration implements IConfiguration {
+abstract class AbstractConfiguration 
+extends UnicastRemoteObject 
+implements IConfiguration {
 
-  /**
-   * toutes les connexion connus par lConfiguration
-   */
-  private List<IConnection> connections;
+	private static final long serialVersionUID = 1L;
 
-  /**
-   * le prochain identifiant valide pour un noeud
-   */
-  protected int nextId;
+	protected AbstractConfiguration() throws RemoteException {
+		super();
+	}
+
+	/**
+	 * toutes les connexion connus par lConfiguration
+	 */
+	private List<IConnection> connections;
+
+	/**
+	 * le prochain identifiant valide pour un noeud
+	 */
+	protected int nextId;
 
 }
