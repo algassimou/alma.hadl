@@ -22,7 +22,7 @@ implements Noeud {
 	 */
 	private int id ;
 	
-	public ProxyConfiguration(Configuration config) throws RemoteException {
+	public ProxyConfiguration(IConfiguration config) throws RemoteException {
 		super();
 		target = config ;
 		// TODO Auto-generated constructor stub

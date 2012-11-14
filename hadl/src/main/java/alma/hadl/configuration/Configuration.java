@@ -65,7 +65,7 @@ public class Configuration extends AbstractConfiguration {
 	 */
 	public static IConfiguration getConfiguration(String adresse) throws MalformedURLException, RemoteException, NotBoundException {
 		// TODO Auto-generated method stub
-		return new ProxyConfiguration((Configuration) Naming.lookup(adresse));
+		return new ProxyConfiguration((IConfiguration) Naming.lookup(adresse));
 	}
 	
 	/**
