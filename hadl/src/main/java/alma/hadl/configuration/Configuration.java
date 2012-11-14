@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.util.List;
 
-import alma.hadl.attachement.RealAttachement;
+import alma.hadl.connection.IAttachement;
 import alma.hadl.noeud.Noeud;
 
 public class Configuration extends AbstractConfiguration {
@@ -45,7 +45,7 @@ public class Configuration extends AbstractConfiguration {
 	/**
 	 * les attachements de la configuration
 	 */
-	private List<RealAttachement> attachements;
+	private List<IAttachement> attachements;
 
 	/**
 	 * @return un identifiant valide pour un noeud

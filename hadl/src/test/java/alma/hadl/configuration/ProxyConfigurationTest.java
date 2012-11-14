@@ -21,7 +21,8 @@ public class ProxyConfigurationTest {
 		try {
 			System.out.println("-*******************************-");
 			//adresse = InetAddress.getLocalHost().toString() ;
-			adresse = "algassimou-laptop" ;
+			//adresse = "algassimou-laptop" ;
+			adresse = "I012V2pc02" ;
 			System.out.println(adresse);
 			config = new StubConfiguration("//"+adresse+":9800/config",9800,10) ;
 			System.out.println("-*******************************-");

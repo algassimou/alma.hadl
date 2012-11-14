@@ -17,6 +17,9 @@ public interface IConfiguration extends Remote {
 	/**
 	 * @return un identifiant valide pour un noeud
 	 */
-	int getNextIdentifiant() throws RemoteException;
+	public int getNextIdentifiant() throws RemoteException;
+	
+	
+	//public boolean createattachement () ;
 
 }

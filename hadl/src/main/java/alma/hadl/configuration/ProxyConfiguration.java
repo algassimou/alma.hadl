@@ -4,7 +4,7 @@ package alma.hadl.configuration;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import alma.hadl.attachement.ProxyAttachment;
+import alma.hadl.connection.IAttachement;
 import alma.hadl.noeud.Noeud;
 
 class ProxyConfiguration 
@@ -31,7 +31,7 @@ implements Noeud {
 	/**
 	 * les attachements de la proxyconfiguration
 	 */
-	private List<ProxyAttachment> attachements;
+	private List<IAttachement> attachements;
 
 	/**
 	 * @return l'identifiant du noeud

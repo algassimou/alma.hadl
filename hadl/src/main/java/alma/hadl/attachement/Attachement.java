@@ -1,7 +1,9 @@
 
 package alma.hadl.attachement;
 
-public class Attachement implements RealAttachement {
+import alma.hadl.connection.IAttachement;
+
+public class Attachement implements IAttachement {
   /**
    * This method is called whenever the observed object is changed. An
    * application calls an <tt>Observable</tt> object's
