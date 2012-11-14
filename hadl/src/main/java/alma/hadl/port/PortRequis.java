@@ -29,4 +29,14 @@ public class PortRequis<Type extends Serializable>
   	 */
   	private Class<IServiceFourni<?>> serviceFourni;
 
+	public void ecrire(Type t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Type lire() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

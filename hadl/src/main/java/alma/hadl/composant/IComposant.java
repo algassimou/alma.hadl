@@ -1,5 +1,7 @@
 package alma.hadl.composant;
 
-public interface IComposant {
+import alma.hadl.noeud.Noeud;
+
+public interface IComposant extends Noeud {
 
 }

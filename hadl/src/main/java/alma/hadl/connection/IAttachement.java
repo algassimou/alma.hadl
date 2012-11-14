@@ -1,6 +1,7 @@
 
 package alma.hadl.connection;
 
+import java.rmi.RemoteException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -10,7 +11,7 @@ import java.util.Observer;
  * @see IPort
  * @see IRole
  */
-public interface IAttachement extends IConnection, Observer {
+public interface IAttachement extends IConnection {
   /**
    * This method is called whenever the observed object is changed. An
    * application calls an <tt>Observable</tt> object's
@@ -20,6 +21,7 @@ public interface IAttachement extends IConnection, Observer {
    * @param   o     the observable object.
    * @param   arg   an argument passed to the <code>notifyObservers</code>
    *                 method.
+ * @throws RemoteException 
    */
-  void update(Observable o, Object arg) ;
+  void update(Observable o, Object arg) throws RemoteException ;
 }

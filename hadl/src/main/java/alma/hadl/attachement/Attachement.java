@@ -15,8 +15,6 @@ public class Attachement implements IAttachement {
    *                 method.
    */
   public void update(java.util.Observable o, Object arg) {
-    // Bouml preserved body begin 00021787
-    // Bouml preserved body end 00021787
   }
 
 }

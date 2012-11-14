@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import alma.hadl.connection.IAttachement;
+import alma.hadl.interfaces.Data;
 import alma.hadl.noeud.Noeud;
 
 class ProxyConfiguration 
@@ -15,16 +16,17 @@ implements Noeud {
 	/**
 	 * La configuration distante
 	 */
-	private IConfiguration target;
+	private IConfiguration targetConfig;
 	
 	/**
-	 * l'identifiant du noeud
+	 * le noeud
 	 */
-	private int id ;
+	private Noeud targetNoeud ;
+	
 	
 	public ProxyConfiguration(IConfiguration config) throws RemoteException {
 		super();
-		target = config ;
+		targetConfig = config ;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -37,7 +39,7 @@ implements Noeud {
 	 * @return l'identifiant du noeud
 	 */
 	public int getId() {
-		return this.id  ;
+		return this.targetNoeud.getId() ;
 	}
 
 	/**
@@ -45,7 +47,7 @@ implements Noeud {
 	 * @param id l'identifiant du noeud
 	 */
 	public void setId(int id) {
-		// on fait rien on ne change pas l'identifiant du proxyConfiguration
+		this.targetNoeud.setId(id);
 	}
 
 	/**
@@ -53,12 +55,18 @@ implements Noeud {
 	 * @throws RemoteException 
 	 */
 	public int getNextIdentifiant() throws RemoteException{
-		return target.getNextIdentifiant();
+		return targetConfig.getNextIdentifiant();
 	}
 
 	public void addNoeud(Noeud n) throws RemoteException {
 		// TODO Auto-generated method stub
-		target.addNoeud(n);
+		targetConfig.addNoeud(n);
+		targetNoeud = n ;
+	}
+
+	public Data<?> getData(String nom) {
+		// TODO Auto-generated method stub
+		return this.targetNoeud.getData(nom);
 	}
 
 }

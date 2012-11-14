@@ -1,9 +1,21 @@
 
 package alma.hadl.attachement;
 
+import java.io.Serializable;
 import java.util.Observable;
 
-public class RemoteAttachement implements IRemoteAttachement {
+import alma.hadl.interfaces.Data;
+
+public class RemoteAttachement<T extends Serializable> implements IRemoteAttachement {
+
+	private Data<T> to ;
+	
+	
+	public RemoteAttachement (Data<T> to) {
+		this.to = to ;
+	}
+	
+	
   /**
    * This method is called whenever the observed object is changed. An
    * application calls an <tt>Observable</tt> object's
@@ -15,6 +27,8 @@ public class RemoteAttachement implements IRemoteAttachement {
    *                 method.
    */
   public void update(Observable o, Object arg) {
+	  T t = (T) arg ;
+	  to.ecrire(t);
   }
 
 }

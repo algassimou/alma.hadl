@@ -17,4 +17,14 @@ public class PortFourni<Type extends Serializable>
 	public String getNom() {
 	   return this.nom ;
 	}
+
+	public void ecrire(Type t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Type lire() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

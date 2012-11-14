@@ -2,6 +2,7 @@
 package alma.hadl.attachement;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 import alma.hadl.connection.IAttachement;
 
@@ -20,6 +21,6 @@ public interface IRemoteAttachement extends IAttachement, Remote {
    * @param   arg   an argument passed to the <code>notifyObservers</code>
    *                 method.
    */
-  void update(java.util.Observable o, Object arg) ;
+  void update(java.util.Observable o, Object arg) throws RemoteException;
 
 }
